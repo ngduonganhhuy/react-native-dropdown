@@ -1,52 +1,52 @@
 import React, {
+    Fragment,
+    memo,
     useCallback,
-    useState,
-    useRef,
     useEffect,
     useMemo,
-    memo,
-    Fragment,
+    useRef,
+    useState,
 } from 'react';
 
 import {
-    View,
-    SafeAreaView,
-    TouchableOpacity,
-    Text,
-    Image,
-    FlatList,
-    TextInput,
-    Dimensions,
-    ScrollView,
-    Modal,
     ActivityIndicator,
     BackHandler,
+    Dimensions,
+    Image,
+    Modal,
     Platform,
+    SafeAreaView,
     StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
+
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 const { height: WINDOW_HEIGHT } = Dimensions.get('window');
 
-import Colors from '../constants/colors';
 import {
-    SCHEMA,
-    GET_TRANSLATION,
+    ASCII_CODE,
     BADGE_COLORS,
     BADGE_DOT_COLORS,
-    ASCII_CODE,
-    TRANSLATIONS,
-    MODE,
-    LIST_MODE,
     DROPDOWN_DIRECTION,
     GET_DROPDOWN_DIRECTION,
+    GET_TRANSLATION,
     LANGUAGE,
+    LIST_MODE,
+    MODE,
     RTL_DIRECTION,
-    RTL_STYLE
+    RTL_STYLE,
+    SCHEMA,
+    TRANSLATIONS
 } from '../constants';
+import Colors from '../constants/colors';
 import THEMES from '../themes';
+import ListEmpty from './ListEmpty';
 import RenderBadgeItem from './RenderBadgeItem';
 import RenderListItem from './RenderListItem';
-import ListEmpty from './ListEmpty';
 
 function Picker({
     value = null,
